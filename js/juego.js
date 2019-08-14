@@ -18,10 +18,18 @@ var Juego = {
   ganador: false,
 
   obstaculosCarretera: [
-    /*Aca se van a agregar los obstaculos visibles. Tenemos una valla horizontal
-    de ejemplo, pero podras agregar muchos mas. */
-    new Obstaculo('imagenes/valla_horizontal.png', 70, 430, 30, 30, 1)
-
+    /*Aca se van a agregar los obstaculos visibles. Tenemos una valla horizontal de ejemplo, pero podras agregar muchos mas. */
+    new Obstaculo('imagenes/valla_horizontal.png', 70, 430, 30, 30, 1),
+    new Obstaculo('imagenes/valla_horizontal.png', 100, 430, 30, 30, 1),
+    new Obstaculo('imagenes/valla_vertical.png', 400, 380, 30, 30, 1),
+    new Obstaculo('imagenes/valla_vertical.png', 400, 410, 30, 30, 1),
+    new Obstaculo('imagenes/valla_vertical.png', 600, 110, 30, 30, 1),
+    new Obstaculo('imagenes/bache.png', 525, 460, 30, 30, 1),
+    new Obstaculo('imagenes/bache.png', 800, 100, 30, 30, 1),
+    new Obstaculo('imagenes/bache.png', 280, 150, 30, 30, 1),
+    new Obstaculo('imagenes/auto_verde_derecha.png', 825, 380, 30, 15, 1),
+    new Obstaculo('imagenes/auto_verde_derecha.png', 550, 225, 30, 15, 1),
+    new Obstaculo('imagenes/auto_verde_abajo.png', 170, 260, 15, 30, 1)
   ],
   /* Estos son los bordes con los que se puede chocar, por ejemplo, la vereda.
    Ya estan ubicados en sus lugares correspondientes. Ya aparecen en el mapa, ya
@@ -131,7 +139,7 @@ Juego.capturarMovimiento = function(tecla) {
     /* Aca tiene que estar la logica para mover al jugador invocando alguno
     de sus metodos  */
 
-    /* COMPLETAR */
+    /* COMPLETAR */ //completado
     this.jugador.mover(tecla, movX, movY);
   }
 };
@@ -148,7 +156,9 @@ Juego.dibujar = function() {
   "Dibujante dibuja al jugador" */
   Dibujante.dibujarEntidad(Jugador);
 
-  /* Completar */
+  /* Completar *///completado
+
+  Dibujante.dibujarRectangulo('yellow',759,530,128,30);
 
   // Se recorren los obstaculos de la carretera pintandolos
   this.obstaculosCarretera.forEach(function(obstaculo) {
@@ -204,7 +214,7 @@ Juego.chequearColisiones = function(x, y) {
     if (this.intersecan(obstaculo, this.jugador, x, y)) {
 
       /*COMPLETAR, obstaculo debe chocar al jugador*/
-
+      obstaculo.chocar();
       puedeMoverse = false
     }
   }, this)
