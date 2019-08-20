@@ -35,7 +35,7 @@ var Jugador = {
   },
   perderVidas: function(potencia) {
     this.vidas -= potencia;
-    console.log('Al jugdor le quedan' + this.vidas + 'vidas');
+    console.log('Al jugador le quedan' + this.vidas + 'vidas');
   }
   // Hay que agregar lo que falte al jugador: movimientos, perdida de vidas,
   // y todo lo que haga falta para que cumpla con sus responsabilidades
