@@ -57,9 +57,9 @@ var Juego = {
     new ZombieCaminante('imagenes/zombie3.png',250, 350, 10, 10, 2, {desdeX: 0, hastaX: 961, desdeY: 0, hastaY: 577}),
     new ZombieCaminante('imagenes/zombie4.png',600, 400, 10, 10, 2, {desdeX: 0, hastaX: 961, desdeY: 0, hastaY: 577}),
     new ZombieCaminante('imagenes/zombie4.png',500, 500, 10, 10, 2, {desdeX: 0, hastaX: 961, desdeY: 0, hastaY: 577}),
-    new ZombieConductor('imagenes/tren_horizontal.png',400, 322, 90, 30, 5, {desdeX: 0, hastaX: 961, desdeY: 322, hastaY: 322}, 'h'),
-    new ZombieConductor('imagenes/tren_vertical.png',644, 0, 30, 90, 2, {desdeX: 644, hastaX: 644, desdeY: 0, hastaY: 577}, 'v'),
-    new ZombieConductor('imagenes/tren_vertical.png',678, 0, 30, 90, 2, {desdeX: 644, hastaX: 644, desdeY: 0, hastaY: 577}, 'v')
+    new ZombieConductor('imagenes/tren_horizontal.png',400, 322, 90, 30, 10, {desdeX: 0, hastaX: 961, desdeY: 322, hastaY: 322}, 'h'),
+    new ZombieConductor('imagenes/tren_vertical.png',644, 200, 30, 90, 8, {desdeX: 644, hastaX: 644, desdeY: 0, hastaY: 577}, 'v'),
+    new ZombieConductor('imagenes/tren_vertical.png',678, 0, 30, 90, 8, {desdeX: 644, hastaX: 644, desdeY: 0, hastaY: 577}, 'v')
   ]
 
 }
@@ -146,7 +146,7 @@ Juego.capturarMovimiento = function(tecla) {
     /* Aca tiene que estar la logica para mover al jugador invocando alguno
     de sus metodos  */
 
-    /* COMPLETAR */ //completado
+    /* COMPLETAR completado */
     this.jugador.mover(tecla, movX, movY);
   }
 };
@@ -161,9 +161,9 @@ Juego.dibujar = function() {
   /* Aca hay que agregar la logica para poder dibujar al jugador principal
   utilizando al dibujante y los metodos que nos brinda.
   "Dibujante dibuja al jugador" */
-  Dibujante.dibujarEntidad(Jugador);
 
-  /* Completar *///completado
+  /* Completar completado */
+  Dibujante.dibujarEntidad(Jugador);
 
   Dibujante.dibujarRectangulo('yellow',759,530,128,30);
 
@@ -174,7 +174,7 @@ Juego.dibujar = function() {
 
   // Se recorren los enemigos pintandolos
   this.enemigos.forEach(function(enemigo) {
-    /* Completar */ //completado
+    /* Completar completado*/ 
     Dibujante.dibujarEntidad(enemigo);
   });
 
@@ -193,7 +193,7 @@ Juego.dibujar = function() {
 un recorrido por los enemigos para dibujarlos en pantalla ahora habra que hacer
 una funcionalidad similar pero para que se muevan.*/
 Juego.moverEnemigos = function() {
-  /* COMPLETAR */
+  /* COMPLETAR completado*/
   this.enemigos.forEach(function(enemigo) {
     enemigo.mover();
   });
@@ -207,11 +207,11 @@ Juego.calcularAtaques = function() {
   this.enemigos.forEach(function(enemigo) {
     if (this.intersecan(enemigo, this.jugador, this.jugador.x, this.jugador.y)) {
       /* Si el enemigo colisiona debe empezar su ataque
-      COMPLETAR */
+      COMPLETAR completado*/
       enemigo.comenzarAtaque();
     } else {
       /* Sino, debe dejar de atacar
-      COMPLETAR */
+      COMPLETAR completado*/
       enemigo.dejarDeAtacar();
     }
   }, this);
@@ -226,7 +226,7 @@ Juego.chequearColisiones = function(x, y) {
   this.obstaculos().forEach(function(obstaculo) {
     if (this.intersecan(obstaculo, this.jugador, x, y)) {
 
-      /*COMPLETAR, obstaculo debe chocar al jugador*/
+      /*COMPLETAR, obstaculo debe chocar al jugador completado*/
       obstaculo.chocar();
       puedeMoverse = false
     }
